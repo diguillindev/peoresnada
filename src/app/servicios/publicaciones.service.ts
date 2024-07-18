@@ -9,8 +9,8 @@ import { postUsuario } from '../modelo/postusuario';
 export class PublicacionesService {
 
   private postusuario = [
-    new postUsuario("nunca fue la navidad", "santa me fallo"),
-    new postUsuario("mejor comer charqui que carne", "comunidad vegana israelita"),
+    new postUsuario( 1 , "nunca fue la navidad", "santa me fallo"),
+    new postUsuario(2, "mejor comer charqui que carne", "comunidad vegana israelita"),
   ];
 
   constructor() { }
@@ -19,4 +19,9 @@ export class PublicacionesService {
     return this.postusuario 
   }
   
+  //metodo para eliminar post
+  eliminarPostUsuario(id: number): void {
+    this.postusuario = this.postusuario.filter(post => post.id !== id);
+  }
+
 }
