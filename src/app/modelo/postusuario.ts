@@ -1,7 +1,9 @@
 export class postUsuario {
     constructor(
-        public id?: number,
-        public titulo?: string,
-        public descripcion?: string
+        public id: number,
+        public titulo: string,
+        public descripcion: string
     ) { }
 }
+
+//se cambia el dato de undefined a definido 

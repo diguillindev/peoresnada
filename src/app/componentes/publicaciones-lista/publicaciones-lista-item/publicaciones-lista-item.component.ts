@@ -14,8 +14,14 @@ import { addIcons } from 'ionicons';
 export class PublicacionesListaItemComponent {
   //@Input() post : postUsuario;
   
-  @Input() post: postUsuario = new postUsuario ();
+  //@Input() post: postUsuario = new postUsuario ();
+  //@Output() eliminar = new EventEmitter<number>();
+
+  @Input() post: postUsuario = new postUsuario(0, '', ''); // inicializar con valores por defecto
   @Output() eliminar = new EventEmitter<number>();
+
+ 
+  
 
   constructor() {
     addIcons({

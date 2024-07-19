@@ -7,9 +7,14 @@ import { postUsuario } from '../modelo/postusuario';
   providedIn: 'root'
 })
 export class PublicacionesService {
-
+/*declarar explicitamente el dato : variable postUsuario es un array de objetos postUsuario 
   private postusuario = [
     new postUsuario( 1 , "nunca fue la navidad", "santa me fallo"),
+    new postUsuario(2, "mejor comer charqui que carne", "comunidad vegana israelita"),
+  ];*/
+
+  private postusuario: postUsuario[] = [
+    new postUsuario(1, "nunca fue la navidad", "santa me fallo"),
     new postUsuario(2, "mejor comer charqui que carne", "comunidad vegana israelita"),
   ];
 
@@ -19,6 +24,12 @@ export class PublicacionesService {
     return this.postusuario 
   }
   
+  //metodo para eliminar post 
+  addPostUsuario(titulo: string, descripcion: string): void {
+    const newId = this.postusuario.length > 0 ? Math.max(...this.postusuario.map(post => post.id)) + 1 : 1;
+    this.postusuario.push(new postUsuario(newId, titulo, descripcion));
+  }
+
   //metodo para eliminar post
   eliminarPostUsuario(id: number): void {
     this.postusuario = this.postusuario.filter(post => post.id !== id);

@@ -6,7 +6,17 @@
 </ion-toolbar>
 </ion-header>  
 
-<app-publicaciones-lista></app-publicaciones-lista>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let publicacion of publicaciones">
+      <ion-label>
+        <h2>{{ publicacion.titulo }}</h2>
+        <p>{{ publicacion.descripcion }}</p>
+      </ion-label>
+      <ion-button slot="end" color="danger" (click)="eliminarPublicacion(publicacion.id)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
 
 
 <ion-fab slot="fixed" vertical="bottom" horizontal="end">
