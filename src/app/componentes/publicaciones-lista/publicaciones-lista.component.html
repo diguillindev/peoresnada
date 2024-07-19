@@ -1,4 +1,4 @@
-<ion-list style="padding-bottom: 600px;">
+<!--<ion-list style="padding-bottom: 600px;">
   <ion-item *ngFor="let post of postPublicaciones" lines="none">
     <ion-thumbnail slot="start">
       <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
@@ -11,5 +11,12 @@
       <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
     </ion-button>
   </ion-item>
+</ion-list>-->
+
+<ion-list style="padding-bottom: 600px;">
+  <app-publicaciones-lista-item *ngFor=
+  "let post of postPublicaciones"
+   [post]="post" (eliminar)="eliminarPostUsuario($event)">
+  </app-publicaciones-lista-item>
 </ion-list>
 
