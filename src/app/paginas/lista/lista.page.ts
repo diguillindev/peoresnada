@@ -35,7 +35,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonButtons, IonIcon, IonFab, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
-import { addOutline } from 'ionicons/icons';
+import { addOutline, trashOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { PublicacionesListaComponent } from "../../componentes/publicaciones-lista/publicaciones-lista.component";
 import { PublicacionesService } from 'src/app/servicios/publicaciones.service';
@@ -53,7 +53,9 @@ export class ListaPage implements OnInit {
 
   constructor(private publicacionesService: PublicacionesService) {
     addIcons({
-      addOutline
+      addOutline,
+      trashOutline
+      
     });
   }
 

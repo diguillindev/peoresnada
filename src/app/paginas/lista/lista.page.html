@@ -13,7 +13,10 @@
         <h2>{{ publicacion.titulo }}</h2>
         <p>{{ publicacion.descripcion }}</p>
       </ion-label>
-      <ion-button slot="end" color="danger" (click)="eliminarPublicacion(publicacion.id)">Eliminar</ion-button>
+      <ion-button slot="end" color="danger" (click)="eliminarPublicacion(publicacion.id)">
+        <ion-icon slot="start" name="trash-outline"></ion-icon> 
+        Eliminar
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
