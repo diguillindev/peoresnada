@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon } from 
 import { RouterLink } from '@angular/router';
 import { arrowBackOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+import { PublicacionesFormularioComponent } from "../../componentes/publicaciones-formulario/publicaciones-formulario.component";
 
 
 @Component({
@@ -12,7 +13,7 @@ import { addIcons } from 'ionicons';
   templateUrl: './formulario.page.html',
   styleUrls: ['./formulario.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink]
+  imports: [IonIcon, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink, PublicacionesFormularioComponent]
 })
 export class FormularioPage implements OnInit {
 
