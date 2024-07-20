@@ -19,7 +19,8 @@
 </ion-item>-->
 <ion-list>
   <ion-item>
-    <ion-input [(ngModel)]="titulo" labelPlacement="floating">
+    <ion-input [(ngModel)]="titulo" required="required" labelPlacement="floating" minlength="5"
+    #tituloInput="ngModel">
       <div slot="label">Titulo <ion-text color="danger">(Required)</ion-text></div>
     </ion-input>
   </ion-item>
@@ -30,11 +31,33 @@
     FOTOGRAFIA
   </ion-button>
 </ion-item>
+
 <ion-item>
-  <ion-input [(ngModel)]="descripcion" label="Descripcion" [counter]="true" maxlength="20" labelPlacement="stacked"
-    placeholder="Despues de 2 litros de mate y talvez 6 o 7 cafes, el cerebro pierde capacidad de asombro">
+  <ion-input [(ngModel)]="descripcion" required="required" label="Descripcion"
+   [counter]="true" minlength="20" #descripcionInput="ngModel"
+  labelPlacement="stacked" 
+    placeholder="el cerebro pierde capacidad de asombro">
   </ion-input>
 </ion-item>
+
 <ion-item style="padding-bottom: 300px;">
-  <ion-button (click)="onSubmit()">Guardar</ion-button>
+  <ion-button (click)="onSubmit()"
+  [disabled]="!tituloInput.valid"
+  [disabled]="!descripcionInput.valid"
+  >Guardar</ion-button>
+</ion-item>
+
+<!--utiliza el operador-->
+<ion-item>
+  <ion-text
+  [hidden]="tituloInput.valid || tituloInput.pristine "
+  color="danger"
+  >Error! La frase debe ser superior a 5 caracteres
+  </ion-text>
+  <ion-text
+  [hidden]="descripcionInput.valid || descripcionInput.pristine "
+  color="danger"
+  >Error! La frase debe ser superior a 20 caracteres
+  </ion-text>
+
 </ion-item>
