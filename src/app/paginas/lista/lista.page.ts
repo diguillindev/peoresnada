@@ -61,6 +61,11 @@ export class ListaPage implements OnInit {
   }
 
 
+  agregarPublicacion(titulo: string, descripcion: string, fecha: string, fotos: string[]) {
+    this.publicacionesService.getPostUsuarios();
+    this.publicaciones = this.publicacionesService.getPostUsuarios(); // Refresh the list
+  }
+
 
 
   formatDate(date: string): string {

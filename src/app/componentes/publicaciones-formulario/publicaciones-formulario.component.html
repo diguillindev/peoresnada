@@ -25,12 +25,26 @@
     </ion-input>
   </ion-item>
 </ion-list>
+
 <ion-item>
-  <ion-button color="medium">
+  <ion-button color="medium" (click)="tomarFoto()">
     <ion-icon slot="start" name="camera-outline"></ion-icon>
     FOTOGRAFIA
   </ion-button>
+
+  <ion-content style="width: 150px; height: 150px;" >
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2" *ngFor="let f of fotos"> 
+          <ion-img [src]="'data:image/jpeg; base64,'+f"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
+
 </ion-item>
+
 
 <ion-item>
   <ion-input [(ngModel)]="descripcion" required="required" label="Descripcion"

@@ -15,8 +15,8 @@ export class PublicacionesService {
   ];*/
 
   private postusuario: postUsuario[] = [
-    new postUsuario(1, "nunca fue la navidad", "santa me fallo", "2023-12-25"),
-    new postUsuario(2, "mejor comer charqui que carne", "comunidad vegana israelita", "2023-11-25"),
+    new postUsuario(1, "nunca fue la navidad", "santa me fallo", "2023-12-25",[]),
+    new postUsuario(2, "mejor comer charqui que carne", "comunidad vegana israelita", "2023-11-25", []),
   ];
 
   constructor() { }
@@ -25,11 +25,11 @@ export class PublicacionesService {
     return this.postusuario 
   }
   
-  //metodo para eliminar post 
-  addPostUsuario(titulo: string, descripcion: string, fecha: string): void {
+  //metodo para eliminar agregar  
+  addPostUsuario(titulo: string, descripcion: string, fecha: string, fotos: string[]): void {
     const newId = this.postusuario.length > 0 ? Math.max(...this.postusuario.map(post => post.id)) + 1 : 1;
     const newFecha = new Date().toISOString().split('T')[0]; // Obtener la fecha actual en formato yyyy-MM-dd
-    this.postusuario.push(new postUsuario(newId, titulo, descripcion, newFecha));
+    this.postusuario.push(new postUsuario(newId, titulo, descripcion, newFecha, fotos));
   }
 
   //metodo para eliminar post

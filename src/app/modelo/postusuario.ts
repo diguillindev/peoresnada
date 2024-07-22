@@ -3,7 +3,8 @@ export class postUsuario {
         public id: number,
         public titulo: string,
         public descripcion: string,
-        public date: string
+        public date: string,
+        public fotos: string []
     ) { }
 }
 
