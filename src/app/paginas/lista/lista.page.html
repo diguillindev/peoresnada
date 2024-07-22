@@ -13,13 +13,34 @@
         <h2>{{ publicacion.titulo }}</h2>
         <p>{{ publicacion.descripcion }}</p>
       </ion-label>
-      <ion-button slot="end" color="danger" (click)="eliminarPublicacion(publicacion.id)">
-        <ion-icon slot="start" name="trash-outline"></ion-icon> 
-        Eliminar
-      </ion-button>
+      <ion-button slot="end" (click)="openModal(publicacion.id)" >
+        <ion-icon slot="start" name="trash-outline"></ion-icon>   
+        Eliminar</ion-button>
     </ion-item>
   </ion-list>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Opciones</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <p>¿Deseas borrar la publicación?</p>
+      <ion-buttons slot="end" style="padding-bottom: 600px;">
+        <ion-button slot="end" color="danger"  *ngIf="currentPublicacionId !== null" (click)="eliminarPublicacion(currentPublicacionId!)">  
+          <ion-icon slot="start" name="trash-outline"></ion-icon> 
+          Eliminar
+        </ion-button>
+        <ion-button (click)="setOpen(false)">Close</ion-button>
+      </ion-buttons>
+    </ng-template>
+  </ion-modal>
 </ion-content>
+
+
+
+
 
 
 <ion-fab slot="fixed" vertical="bottom" horizontal="end">
