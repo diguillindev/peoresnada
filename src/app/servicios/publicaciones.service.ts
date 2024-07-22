@@ -3,6 +3,7 @@ import { postUsuario } from '../modelo/postusuario';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +15,8 @@ export class PublicacionesService {
   ];*/
 
   private postusuario: postUsuario[] = [
-    new postUsuario(1, "nunca fue la navidad", "santa me fallo"),
-    new postUsuario(2, "mejor comer charqui que carne", "comunidad vegana israelita"),
+    new postUsuario(1, "nunca fue la navidad", "santa me fallo", "2023-12-25"),
+    new postUsuario(2, "mejor comer charqui que carne", "comunidad vegana israelita", "2023-11-25"),
   ];
 
   constructor() { }
@@ -25,9 +26,10 @@ export class PublicacionesService {
   }
   
   //metodo para eliminar post 
-  addPostUsuario(titulo: string, descripcion: string): void {
+  addPostUsuario(titulo: string, descripcion: string, fecha: string): void {
     const newId = this.postusuario.length > 0 ? Math.max(...this.postusuario.map(post => post.id)) + 1 : 1;
-    this.postusuario.push(new postUsuario(newId, titulo, descripcion));
+    const newFecha = new Date().toISOString().split('T')[0]; // Obtener la fecha actual en formato yyyy-MM-dd
+    this.postusuario.push(new postUsuario(newId, titulo, descripcion, newFecha));
   }
 
   //metodo para eliminar post

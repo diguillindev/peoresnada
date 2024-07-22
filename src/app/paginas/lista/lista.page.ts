@@ -8,23 +8,25 @@ import { addIcons } from 'ionicons';
 import { PublicacionesListaComponent } from "../../componentes/publicaciones-lista/publicaciones-lista.component";
 import { PublicacionesService } from 'src/app/servicios/publicaciones.service';
 import { postUsuario } from 'src/app/modelo/postusuario';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.page.html',
   styleUrls: ['./lista.page.scss'],
   standalone: true,
+  providers: [DatePipe],
   imports: [IonModal, IonFab, RouterLink, IonIcon, IonButtons, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, PublicacionesListaComponent, IonList, IonItem, IonLabel]
 })
 export class ListaPage implements OnInit {
 
 
   publicaciones: postUsuario[] = [];
-
   isModalOpen = false;
   currentPublicacionId: number | null = null;
 
-  constructor(private publicacionesService: PublicacionesService) {
+  constructor(private publicacionesService: PublicacionesService, private datePipe: DatePipe) {
     addIcons({
       addOutline,
       trashOutline
@@ -56,6 +58,13 @@ export class ListaPage implements OnInit {
       this.publicaciones = this.publicacionesService.getPostUsuarios();
       this.setOpen(false);
     }
+  }
+
+
+
+
+  formatDate(date: string): string {
+    return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
   }
 
 }

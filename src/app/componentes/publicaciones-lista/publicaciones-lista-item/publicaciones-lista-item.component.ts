@@ -17,7 +17,7 @@ export class PublicacionesListaItemComponent {
   //@Input() post: postUsuario = new postUsuario ();
   //@Output() eliminar = new EventEmitter<number>();
 
-  @Input() post: postUsuario = new postUsuario(0, '', ''); // inicializar con valores por defecto
+  @Input() post: postUsuario = new postUsuario(0, '', '', '' ); // inicializar con valores por defecto
   @Output() eliminar = new EventEmitter<number>();
 
  

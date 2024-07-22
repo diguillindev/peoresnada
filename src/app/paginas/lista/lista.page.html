@@ -13,6 +13,7 @@
         <h2>{{ publicacion.titulo }}</h2>
         <p>{{ publicacion.descripcion }}</p>
       </ion-label>
+      <p>{{publicacion.date}}</p>
       <ion-button slot="end" (click)="openModal(publicacion.id)" >
         <ion-icon slot="start" name="trash-outline"></ion-icon>   
         Eliminar</ion-button>

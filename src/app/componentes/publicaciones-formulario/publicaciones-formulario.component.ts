@@ -17,6 +17,7 @@ export class PublicacionesFormularioComponent  implements OnInit {
 
   titulo: string = '';
   descripcion: string = '';
+  fecha: string = '';
   
 
 
@@ -32,9 +33,10 @@ export class PublicacionesFormularioComponent  implements OnInit {
 
   //metodo onSubmit
   onSubmit() {
-    this.publicacionesService.addPostUsuario(this.titulo, this.descripcion);
+    this.publicacionesService.addPostUsuario(this.titulo, this.descripcion, this.fecha);
     console.log('Titulo:', this.titulo);
     console.log('Descripcion:', this.descripcion);
+    console.log('Fecha:', this.fecha);
   }
 
  
